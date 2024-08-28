@@ -17,6 +17,7 @@ sudo apt-get -y install \
     grep sed gawk python-is-python3 bc \
     zlib1g-dev libexpat1-dev libmpc-dev \
     libglib2.0-dev libfdt-dev libpixman-1-dev
+```bash
 
 ### Step 1: Clone the Repositories
 ```bash
