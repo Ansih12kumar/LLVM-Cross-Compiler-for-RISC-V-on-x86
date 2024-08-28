@@ -16,7 +16,8 @@ sudo apt-get -y install \
     make cmake ninja-build automake bison flex gperf \
     grep sed gawk python-is-python3 bc \
     zlib1g-dev libexpat1-dev libmpc-dev \
-    libglib2.0-dev libfdt-dev libpixman-1-dev
+    libglib2.0-dev libfdt-dev libpixman-1-dev th
+`````
 
 ### Step 1: Clone the Repositories
 ```bash
