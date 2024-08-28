@@ -26,6 +26,7 @@ mkdir _install
 export PATH=`pwd`/_install/bin:$PATH
 hash -r
 git clone https://github.com/llvm/llvm-project.git riscv-llvm
+`````
 
 ### Step 2: Build the GNU Toolchain
 ```bash
@@ -34,6 +35,7 @@ pushd riscv-gnu-toolchain
 make linux -j`nproc`
 make -j`nproc` build-qemu
 popd
+`````
 
 ### Step 3: Build LLVM
 ```bash
@@ -51,6 +53,7 @@ cmake -G Ninja -DCMAKE_BUILD_TYPE="Release" \
     ../llvm
 cmake --build . --target install
 popd
+`````
 
 ### Sanity Test for RISC-V LLVM
 Step 1: Compile and Run a Simple C Program
@@ -64,6 +67,7 @@ int main(){
     return 0;
 }
 END
+`````
 
 ### Compile the program:
 
@@ -71,12 +75,14 @@ END
 clang -O -c hello.c 
 riscv64-unknown-linux-gnu-gcc hello.o -o hello -march=rv64gc -mabi=lp64d
 qemu-riscv64 hello
+`````
 
 ### Step 2: Test with the llama Repo
 Compile your C program in the llama repo
 ```bash
 clang -O3 -c run.c
 riscv64-unknown-linux-gnu-gcc run.o -o run -march=rv64gc -mabi=lp64d -lm
+`````
 
 ### Common Issues
 - LD_LIBRARY_PATH Error
@@ -84,11 +90,13 @@ riscv64-unknown-linux-gnu-gcc run.o -o run -march=rv64gc -mabi=lp64d -lm
 - configure: error:  *** LD_LIBRARY_PATH shouldn't contain the current directory when *** building glibc. Please change the environment variable *** and run configure again.
 ```bash
 export LD_LIBRARY_PATH=/usr/local/cuda-11.7/lib64
+`````
 
 ### Relocation Error
 - If you encounter errors similar to:
 ```bash
 riscv64-unknown-linux-gnu-gcc hello.o -o hello -march=rv64gc -mabi=lp64d
+`````
 
 ### Error shows
 
@@ -102,6 +110,7 @@ collect2: error: ld returned 1 exit status
 ```bash
 export PATH=`pwd`/_install/bin:$PATH
 hash -r
+`````
 
 
 
